@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h1 class="text-center">Our restaurants</h1>
+
+
+      <% @restaurants.each do |restaurant| %>
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-md-offset-3">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://i.f1g.fr/media/ext/orig/www.lefigaro.fr/medias/2013/12/05/PHO9c94bd0c-5d95-11e3-9117-7d8eaf2feb0f-805x453.jpg');">
+              <div class="card-category"><%= restaurant.category %></div>
+                <div class="card-description">
+                  <h2><%= restaurant.name %></h2>
+                </div>
+                <div class="card-link-forward">
+                    <%= link_to 'Add review', new_restaurant_review_path(restaurant) %>
+                    <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+                    <%= link_to 'Delete', restaurant_path(restaurant), method: :delete %>
+                </div>
+            <%= link_to  "", restaurant_path(restaurant), class: "card-link" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  <h2 class="text-center"> <%= link_to 'Add restaurant', new_restaurant_path  %></h2>
+
+</div>
+
